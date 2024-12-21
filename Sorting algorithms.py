@@ -2,13 +2,11 @@ import time
 from random import randint
 from abc import ABC, abstractmethod
 
-# Определяем интерфейс стратегии
 class SortingStrategy(ABC):
     @abstractmethod
     def sort(self, array):
         pass
 
-# Реализация стратегий сортировки
 class SelectionSort(SortingStrategy):
     def sort(self, array):
         arr = array.copy()
@@ -71,7 +69,6 @@ class QuickSort(SortingStrategy):
         right = [x for x in array if x > pivot]
         return self.sort(left) + middle + self.sort(right)
 
-# Контекст, использующий стратегии
 class Sorter:
     def __init__(self, strategy: SortingStrategy):
         self.strategy = strategy
@@ -82,7 +79,6 @@ class Sorter:
     def sort(self, array):
         return self.strategy.sort(array)
 
-# Функция выбора алгоритма сортировки
 def choose_strategy():
     strategies = {
         "1": ("Selection Sort", SelectionSort()),
@@ -103,7 +99,6 @@ def choose_strategy():
         print("Некорректный ввод. Повторите попытку.")
         return choose_strategy()
 
-# Функция выбора источника данных
 def choose_input():
     print("Выберите источник данных:")
     print("1: Ввести массив с клавиатуры")
@@ -129,7 +124,6 @@ def choose_input():
         print("Некорректный ввод. Повторите попытку.")
         return choose_input()
 
-# Основная программа
 if __name__ == "__main__":
     unsorted_array = choose_input()
     strategy_name, strategy = choose_strategy()
