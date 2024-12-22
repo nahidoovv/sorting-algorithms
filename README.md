@@ -26,6 +26,6 @@
 
 ## UML Диаграмма
 
-![UML Sequence Diagram](./UML-Diagramm.png)
+![UML Sequence Diagram](./classes.png)
 
 
